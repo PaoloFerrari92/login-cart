@@ -1,0 +1,133 @@
+.first-section{
+    background-color: black;
+    color: white;
+    padding: 5px;
+    border-bottom: 2px solid gold;
+}
+.first-section-row{
+    display: flex;
+    justify-content: space-around;
+    background-color: black;
+    align-items: center;
+
+}
+.link-header{
+    text-decoration: none;
+    color: white; 
+    align-items: center;
+}
+.link-header:hover{
+    color: gold;
+}
+
+.user-badge{
+    background-color: black;
+}
+.second-section{
+    background-color: black;
+    color: white;
+    padding: 10px;
+    border-bottom: 2px solid gold;
+    align-items: center;
+
+}
+
+.second-row{
+    align-items: center;
+    
+}
+
+.col2-link{
+    display: flex;
+    justify-content: space-around;
+}
+.col3-link{
+    display: flex;
+    justify-content: space-around;
+    
+}
+.navigation {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 0.5rem 0rem;
+    background-color: black;
+    color: black;
+}
+
+  .navigation-menu {
+    margin-left: auto;
+    padding-top: 10px;
+  }
+
+  .navigation-menu ul {
+    display: flex;
+    padding: 0;
+    
+  }
+
+  .navigation-menu li {
+    list-style-type: none;
+    margin: 0 1rem;
+  }
+
+  .navigation-menu li a {
+    text-decoration: none;
+    display: block;
+    width: 100%;
+  }
+
+  .hamburger {
+    border: 0;
+    height: 40px;
+    width: 40px;
+    padding: 0.5rem;
+    border-radius: 50%;
+    background-color: black;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    position: absolute;
+    top: 50%;
+    right: 25px;
+    transform: translateY(-50%);
+    display: none;
+  }
+
+  .hamburger:hover {
+    background-color: black;
+  }
+
+  @media screen and (max-width: 768px) {
+    .hamburger {
+      display: block;
+    }
+    .navigation-menu ul {
+        display: none;
+      }
+      .navigation-menu ul {
+        position: absolute;
+        top: 40px;
+        left: 0;
+        flex-direction: column;
+        width: 100%;
+        background-color: black;
+        border-top: 1px solid black;
+        color: black;
+      }
+      .navigation-menu li {
+        text-align: center;
+        margin: 0;
+      }
+      .navigation-menu li a {
+        color: white;
+        width: 100%;
+        padding: 1.5rem 0;
+      }
+      .navigation-menu li:hover {
+        background-color: #636262;
+      }
+      .navigation-menu.expanded ul {
+        display: block;
+      }
+  }
