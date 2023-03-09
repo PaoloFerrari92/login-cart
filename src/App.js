@@ -9,11 +9,14 @@ import Signup from './components/auth/Signup';
 import {UserAuthContextProvider} from './context/UserAuthContext';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import AuthDetail from './components/auth/AuthDetail';
+import Cart from './pages/Cart';
+import CartContext from './context/CartContext';
 
 function App() {
   return (
     <div className="App">
       <UserAuthContextProvider>
+        <CartContext>
      <Header /> 
      <Routes>
       <Route path="/" element={
@@ -25,7 +28,9 @@ function App() {
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/autDetail" element={<AuthDetail />} />
+      <Route path="/cart" element={<Cart />} />
     </Routes>
+    </CartContext>
     </UserAuthContextProvider>
     </div>
   );

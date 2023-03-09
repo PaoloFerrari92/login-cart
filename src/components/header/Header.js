@@ -11,8 +11,20 @@ import { BiUserCircle} from 'react-icons/bi';
 import { Badge, Dropdown, Nav } from 'react-bootstrap';
 import { FaShoppingCart} from 'react-icons/fa';
 import AuthDetail from '../auth/AuthDetail';
+import { CartState } from '../../context/CartContext';
+import { AiFillDelete } from "react-icons/ai";
 
 const Header = () => {
+  const {
+    state: {cart},
+    dispatch
+  } = CartState();
+
+
+
+
+
+
   const [isNavExpanded, setIsNavExpanded] = useState(false)
   return (
     <>
@@ -98,12 +110,45 @@ const Header = () => {
             <Dropdown.Toggle variant='black' bc='black'  >
                 <FaShoppingCart color='white' fontSize='25px'/>
                   
-                <Badge bg="light" text="dark" style={{marginLeft:'10px', paddingBottom:'8px'}}>5</Badge>
+                <Badge bg="light" text="dark" style={{marginLeft:'10px', paddingBottom:'8px'}}>{cart.length}</Badge>
             </Dropdown.Toggle>
 
             <Dropdown.Menu style={{ minWidth: 370 , backgroundColor:'black', color:'white', border:'2px solid white'}}>
-              ciao
-        </Dropdown.Menu>
+            {cart.length > 0 ? (
+                <>
+                  {cart.map((product) => (
+                    <span className="cartitem" key={product.id}>
+                      <div className="cartItemDetail">
+                      <img
+                        src={product.image}
+                        className="cartItemImg"
+                        alt={product.name}
+                      />
+                        <span className='title'>{product.title} </span>
+                        <span> {product.price} €</span>
+                        <AiFillDelete
+                        fontSize="20px"
+                        style={{ cursor: "pointer" }}
+                        onClick={() =>
+                          dispatch({
+                            type: "REMOVE_FROM_CART",
+                            payload: product,
+                          })
+                        }
+                      />
+                      </div>
+                     
+                    </span>
+                  ))}
+                  <Link to="/cart">
+                    <Button style={{ width: "95%", margin: "0 10px" }}>
+                      Go To Cart
+                    </Button>
+                  </Link>
+                </>
+              ) : (
+                <span style={{ padding: 10 }}>Cart is Empty!</span>
+              )}        </Dropdown.Menu>
 
         </Dropdown>
     </Nav>

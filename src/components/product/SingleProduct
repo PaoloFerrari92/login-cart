@@ -1,0 +1,18 @@
+import React from 'react'
+import { CartState } from '../../context/CartContext';
+
+const SingleProduct = ({  }) => {
+  const {
+    state: {products}} = CartState()
+
+  console.log(products);
+
+  return (
+    <div>
+     <h4> {products.title} </h4>
+      
+    </div>
+  )
+}
+
+export default SingleProduct

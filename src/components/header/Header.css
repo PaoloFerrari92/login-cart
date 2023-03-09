@@ -98,6 +98,12 @@
     background-color: black;
   }
 
+.cartItemImg {
+  width: 30px;
+  height: 30px;
+}
+
+
   @media screen and (max-width: 768px) {
     .hamburger {
       display: block;
